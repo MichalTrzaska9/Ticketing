@@ -1,0 +1,69 @@
+<div class="container mx-auto p-4">
+  <h2 class="text-2xl font-bold mb-4">Add Event</h2>
+  @if (eventCreated) {
+    <h4 class="text-green-500">Event Created Successfully</h4>
+  }
+  <form [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700" for="stockCode">Stock Code</label>
+      <input
+        type="text"
+        id="stockCode"
+        formControlName="stockCode"
+        class="border rounded w-full py-2 px-3 text-gray-700"
+      />
+      <div *ngIf="stockCode?.invalid && (stockCode?.dirty || stockCode?.touched)" class="text-red-500">
+        <div *ngIf="stockCode?.errors?.['required']">Please enter the stock code.</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700" for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="border rounded w-full py-2 px-3 text-gray-700"
+      />
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-red-500">
+        <div *ngIf="name?.errors?.['required']">Please enter the name.</div>
+        <div *ngIf="name?.errors?.['minlength']">Please enter a name with 3 or more characters.</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700" for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="border rounded w-full py-2 px-3 text-gray-700"
+      ></textarea>
+      <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="text-red-500">
+        <div *ngIf="description?.errors?.['required']">Please enter the description.</div>
+        <div *ngIf="description?.errors?.['minlength']">Please enter a description with 10 or more characters.</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="block text-gray-700" for="price">Price</label>
+      <input
+        type="number"
+        id="price"
+        formControlName="price"
+        class="border rounded w-full py-2 px-3 text-gray-700"
+      />
+      <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="text-red-500">
+        <div *ngIf="price?.errors?.['required']">Please enter the price.</div>
+        <div *ngIf="price?.errors?.['min']">Please enter a price above 0.</div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+      [disabled]="addEventForm.invalid"
+    >
+      Add Event
+    </button>
+  </form>
+</div>

@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS purchase_service;
+CREATE DATABASE IF NOT EXISTS stock_service;

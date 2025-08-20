@@ -1,0 +1,1 @@
+kind create cluster --name ticketing --config kind-configuration.yaml

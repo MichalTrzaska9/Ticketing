@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: global-settings
+data:
+  EVENT_SERVICE_URL: "http://event-service.default.svc.cluster.local:8080"
+  PURCHASE_SERVICE_URL: "http://purchase-service.default.svc.cluster.local:8081"
+  STOCK_SERVICE_URL: "http://stock-service.default.svc.cluster.local:8082"
+  SPRING_KAFKA_BOOTSTRAP-SERVERS: "broker.default.svc.cluster.local:29092"

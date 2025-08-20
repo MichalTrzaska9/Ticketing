@@ -1,0 +1,60 @@
+<main>
+  <div class="p-4">
+      @if (isAuthenticated) {
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-2xl font-bold mb-4">Events ({{ events.length }})</h1>
+      <img src="EventPL.png"
+           alt="EventPL Logo"
+           class="h-16 mx-4"/>
+      <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 ml-4"
+                (click)="goToCreateEventPage()">
+          Create Event
+        </button>
+    </div>
+      }@else {
+      <div class="flex flex-col items-center mb-4">
+        <img src="EventPL.png" alt="EventPL Logo" class="w-3/4 max-w-md md:max-w-lg lg:max-w-2xl h-auto mb-8"/>
+      </div>
+      }
+    @if (events.length > 0) {
+      @if (purchaseSuccess) {
+        <h4 class="text-green-500 font-bold">Purchase completed successfully.</h4>
+      } @else if (purchaseFailed) {
+        <h4 class="text-red-500 font-bold">We couldn’t process your purchase. Try again later.</h4>
+        @if(quantityIsNull) {
+          <h4 class="text-red-500 font-bold">Please enter a quantity.</h4>
+        }
+      }
+      <ul class="list-disc list-inside">
+        @for (event of events; track event.id) {
+          <li class="mb-2 p-4 bg-gray-100 rounded-lg shadow-sm flex justify-between items-center">
+            <div>
+              <span class="font-semibold">{{ event.name }}</span>
+              <br/>
+              <span class="text-gray-600">{{ event.description }}</span>
+              <br/>
+              <span class="text-gray-600">
+                Price: {{ event.price }}
+              </span>
+              <br/>
+              <span class="text-gray-600">Available Tickets: {{ event.availableTickets }}</span>
+              <br/>
+              <span >
+                Quantity: <input type="number" #quantityInput/>
+              </span>
+              <br/>
+            </div>
+            <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 ml-4"
+                    (click)="purchaseEvent(event, quantityInput.value)">
+              Purchase Now
+            </button>
+          </li>
+        }
+      </ul>
+    } @else {
+      @if (isAuthenticated){
+      <p class="text-red-500 font-semibold">No events found!</p>
+    }
+    }
+  </div>
+</main>

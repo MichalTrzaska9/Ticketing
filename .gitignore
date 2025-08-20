@@ -1,0 +1,8 @@
+/.vs/
+/data/
+/volume-data/
+/alerts-service/target/
+/event-service/target/
+/gateway/target/
+/purchase-service/target/
+/stock-service/target/

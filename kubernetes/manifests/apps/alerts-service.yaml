@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alerts-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alerts-service
+  template:
+    metadata:
+      labels:
+        app: alerts-service
+    spec:
+      containers:
+        - name: alerts-service
+          image: michal7777/new-alerts-service:latest
+          env:
+            - name: SPRING_KAFKA_BOOTSTRAP-SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  key: SPRING_KAFKA_BOOTSTRAP-SERVERS
+                  name: global-settings
+            - name: SPRING_KAFKA_CONSUMER_PROPERTIES_SCHEMA_REGISTRY_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: SPRING_KAFKA_CONSUMER_PROPERTIES_SCHEMA_REGISTRY_URL
+                  name: alerts-service-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alerts-service
+spec:
+  selector:
+    app: alerts-service
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alerts-service-config
+data:
+  SPRING_KAFKA_CONSUMER_PROPERTIES_SCHEMA_REGISTRY_URL: "http://schema-registry.default.svc.cluster.local:8081"
