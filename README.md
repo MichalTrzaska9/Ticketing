@@ -26,8 +26,8 @@ This project was created for educational purposes as part of self-directed learn
 - **Lombok** - used to reduce boilerplate code in Java classes, such as getters, setters and constructors. 
 
 ## Services
-- Gatwey using Spring Cloud Gateway MVC
 - Frontend using Angular 18
+- Gatwey using Spring Cloud Gateway MVC
 - Event Service
 - Purchase Service
 - Order Service
