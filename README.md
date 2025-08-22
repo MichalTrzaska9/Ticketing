@@ -26,7 +26,8 @@ This project was created for educational purposes as part of self-directed learn
 - **Lombok** - used to reduce boilerplate code in Java classes, such as getters, setters and constructors. 
 
 ## Architecture
- 
+ <img width="858" height="469" alt="image" src="https://github.com/user-attachments/assets/279c4f32-33e3-4e9b-a8e2-3823c7990fa1" />
+
 
 ## Run
 - Make sure you have installed: `Java 17`, `Docker`, `Kind Cluster`, `Angular CLI`, `NPM`, `Node.js`.
