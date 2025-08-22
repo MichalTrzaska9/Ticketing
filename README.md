@@ -25,8 +25,18 @@ This project was created for educational purposes as part of self-directed learn
 - **Resilience4j** - used to increase the resilience of microservices, providing support for `Circuit Breaker` and `Retry`.
 - **Lombok** - used to reduce boilerplate code in Java classes, such as getters, setters and constructors. 
 
+## Services
+- Gatwey using Spring Cloud Gateway MVC
+- Frontend using Angular 18
+- Event Service
+- Purchase Service
+- Order Service
+- Alerts Service
+
+
 ## Architecture
- <img width="858" height="469" alt="image" src="https://github.com/user-attachments/assets/279c4f32-33e3-4e9b-a8e2-3823c7990fa1" />
+<img width="997" height="561" alt="image" src="https://github.com/user-attachments/assets/8673e3c0-586e-430b-8028-409d1ac19822" />
+![architecture](https://github.com/user-attachments/assets/7a5fe7cf-94ab-4da3-b736-8ba7c5db1fcd)
 
 
 ## Run
