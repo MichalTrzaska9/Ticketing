@@ -35,8 +35,7 @@ This project was created for educational purposes as part of self-directed learn
 
 
 ## Architecture
-<img width="997" height="561" alt="image" src="https://github.com/user-attachments/assets/8673e3c0-586e-430b-8028-409d1ac19822" />
-![architecture](https://github.com/user-attachments/assets/7a5fe7cf-94ab-4da3-b736-8ba7c5db1fcd)
+![Architecture](architecture.jpg)
 
 
 ## Run
